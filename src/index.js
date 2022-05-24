@@ -8,10 +8,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
-});
-
 const users = [];
 
 function checkExistsUserAccount(request, response, next) {
@@ -164,3 +160,5 @@ app.delete("/todos/:id", checkExistsUserAccount, checkExistsTodo, (request, resp
 
     return response.status(204).send();
 });
+
+module.exports = app;
